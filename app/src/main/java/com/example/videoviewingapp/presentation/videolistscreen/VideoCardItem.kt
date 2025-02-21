@@ -1,6 +1,7 @@
 package com.example.videoviewingapp.presentation.videolistscreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -27,11 +28,13 @@ import com.example.videoviewingapp.data.Video
 @Composable
 fun VideoCardItem(
     modifier: Modifier = Modifier,
-    video: Video
+    video: Video,
+    onClick: () -> Unit
 ) {
     Card(
         modifier = modifier
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .clickable { onClick() },
         shape = RoundedCornerShape(8.dp),
     ) {
         Box(
@@ -41,7 +44,7 @@ fun VideoCardItem(
             // превью видео
             VideoCardItemImage(
                 thumbnailUrl = video.thumbnailUrl,
-                title = video.title
+                title = video.title,
             )
 
             // название и продолжительность видео
@@ -71,7 +74,7 @@ fun VideoCardItem(
 @Composable
 fun VideoCardItemImage(
     thumbnailUrl: String,
-    title: String
+    title: String,
 ) {
     AsyncImage(
         model = thumbnailUrl,
