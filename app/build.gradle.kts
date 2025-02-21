@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.jetbrainsKotlinKsp)
+    alias(libs.plugins.hiltPlugin)
 }
 
 android {
@@ -74,4 +76,15 @@ dependencies {
     // для загрузки фото
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+
+    // для просмотра видео
+    implementation(libs.androidx.media3.exoplayer)
+    implementation(libs.androidx.media3.ui)
+
+    //Hilt
+    implementation (libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    ksp(libs.dagger.compiler)
+    ksp(libs.hilt.compiler)
+
 }
