@@ -4,6 +4,7 @@ import androidx.compose.runtime.traceEventEnd
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.videoviewingapp.data.Video
+import com.example.videoviewingapp.data.repository.VideoRepository
 import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -14,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class VideoListViewModel @Inject constructor(
-
+    private val repository: VideoRepository
 ) : ViewModel() {
 
     private val _videos = MutableStateFlow<List<Video>>(emptyList())
@@ -23,10 +24,15 @@ class VideoListViewModel @Inject constructor(
     private val _isRefreshing = MutableStateFlow(false)
     val isRefreshing: StateFlow<Boolean> = _isRefreshing
 
+    init {
+        loadVideos()
+    }
+
     fun loadVideos() {
         viewModelScope.launch {
             _isRefreshing.value = true
             try {
+                _videos.value = repository.loadVideo()
             } catch (e: Exception) {
 
             } finally {

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.jetbrainsKotlinKsp)
     alias(libs.plugins.hiltPlugin)
+    alias(libs.plugins.maps.secrets)
 }
 
 android {
@@ -41,6 +42,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -72,7 +74,7 @@ dependencies {
 
     // для адаптации макета
     implementation("androidx.compose.material3:material3-window-size-class:1.3.1")
-    implementation (libs.accompanist.systemuicontroller)
+    implementation(libs.accompanist.systemuicontroller)
 
 
     // для загрузки фото
@@ -83,10 +85,14 @@ dependencies {
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.ui)
 
-    //Hilt
-    implementation (libs.hilt.android)
+    // Hilt
+    implementation(libs.hilt.android)
     implementation(libs.androidx.hilt.navigation.compose)
     ksp(libs.dagger.compiler)
     ksp(libs.hilt.compiler)
 
+    // для загрузки данных
+    implementation(libs.retrofit)
+    implementation(libs.moshi.kotlin)
+    implementation (libs.converter.moshi)
 }

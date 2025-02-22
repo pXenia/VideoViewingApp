@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -18,9 +19,6 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -74,7 +72,7 @@ fun VideoListScreen(
         ) {
             Column {
                 Text(
-                    text = stringResource(R.string.music_trends),
+                    text = "Сейчас популярно",
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(20.dp),
@@ -82,20 +80,22 @@ fun VideoListScreen(
                 )
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(columnCount),
-                    modifier = Modifier.fillMaxSize().padding(horizontal = 10.dp),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 10.dp),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    items(9) {
+                    items(videos) { video ->
                         VideoCardItem(
                             modifier = Modifier.height(cardHeight),
                             video = Video(
-                                id = "",
-                                title = "Riley Green - Worst Way",
-                                thumbnailUrl = "https://avatars.mds.yandex.net/i?id=85c711d5e3f31787f70136b9270d6179a73d8877-12423030-images-thumbs&n=13",
-                                duration = "22:45",
+                                link = video.link,
+                                title = video.title,
+                                thumbnailUrl = video.thumbnailUrl,
+                                duration = video.duration,
                             ),
-                            onClick = { navController.navigate(Screen.PlayerScreen.route) }
+                            onClick = { navController.navigate(Screen.PlayerScreen.route + "?link=${video.link}")}
                         )
                     }
                 }

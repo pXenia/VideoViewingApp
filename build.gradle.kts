@@ -5,4 +5,5 @@ plugins {
     alias(libs.plugins.compose.compiler) apply false
     alias(libs.plugins.jetbrainsKotlinKsp) apply false
     alias(libs.plugins.hiltPlugin) apply false
+    alias(libs.plugins.maps.secrets) apply false
 }

@@ -2,6 +2,7 @@
 accompanistSystemuicontroller = "0.30.1"
 agp = "8.6.0"
 coilCompose = "3.1.0"
+converterMoshi = "2.4.0"
 hiltNavigationCompose = "1.2.0"
 kotlin = "2.1.0"
 coreKtx = "1.15.0"
@@ -14,6 +15,9 @@ composeBom = "2024.04.01"
 media3Exoplayer = "1.5.1"
 hiltAndroid = "2.51.1"
 kotlinKsp = "2.1.10-1.0.30"
+moshiKotlin = "1.15.2"
+retrofit = "2.11.0"
+maps-secrets-gradle-plugin = "2.0.1"
 
 
 [libraries]
@@ -24,6 +28,7 @@ androidx-media3-exoplayer = { module = "androidx.media3:media3-exoplayer", versi
 androidx-media3-ui = { module = "androidx.media3:media3-ui", version.ref = "media3Exoplayer" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }
+converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "converterMoshi" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -40,6 +45,8 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "hiltAndroid" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
+moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiKotlin" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -47,3 +54,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 jetbrainsKotlinKsp = { id = "com.google.devtools.ksp", version.ref = "kotlinKsp" }
 hiltPlugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
+maps-secrets = { id = "com.google.android.libraries.mapsplatform.secrets-gradle-plugin", version.ref = "maps-secrets-gradle-plugin" }

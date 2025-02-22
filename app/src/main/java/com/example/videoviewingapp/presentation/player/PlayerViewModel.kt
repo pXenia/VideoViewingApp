@@ -27,16 +27,16 @@ class PlayerViewModel @Inject constructor(
     private var currentPosition: Long = savedStateHandle["current_position"] ?: 0L
 
     init {
-        savedStateHandle.get<String>("url")?.let { url ->
+        savedStateHandle.get<String>("link")?.let { url ->
             initializePlayer(url)
-        } ?: initializePlayer("https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+        }
     }
 
     private fun initializePlayer(url: String) {
         if (_playerState.value == null) {
             viewModelScope.launch {
                 exoPlayer.also {
-                    val mediaItem = MediaItem.fromUri(Uri.parse(url))
+                    val mediaItem = MediaItem.fromUri(url)
                     it.setMediaItem(mediaItem)
                     it.prepare()
                     it.playWhenReady = true
