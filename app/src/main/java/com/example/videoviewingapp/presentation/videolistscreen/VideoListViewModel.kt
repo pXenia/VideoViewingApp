@@ -1,16 +1,13 @@
 package com.example.videoviewingapp.presentation.videolistscreen
 
-import androidx.compose.runtime.traceEventEnd
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.videoviewingapp.data.Video
+import com.example.videoviewingapp.domain.Video
 import com.example.videoviewingapp.data.repository.VideoRepository
-import dagger.hilt.android.HiltAndroidApp
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.time.delay
 import javax.inject.Inject
 
 @HiltViewModel

@@ -95,4 +95,8 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.moshi.kotlin)
     implementation (libs.converter.moshi)
+
+    // для кеширования
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
 }

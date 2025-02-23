@@ -1,4 +1,4 @@
-package com.example.videoviewingapp.data
+package com.example.videoviewingapp.domain
 
 data class PexelsVideoListResponse(
     val videos: List<PexelsVideo>

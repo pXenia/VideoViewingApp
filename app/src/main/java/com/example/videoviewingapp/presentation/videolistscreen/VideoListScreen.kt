@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.videoviewingapp.R
-import com.example.videoviewingapp.data.Video
+import com.example.videoviewingapp.domain.Video
 import com.example.videoviewingapp.presentation.navigation.Screen
 
 // определение размера экрана
@@ -72,7 +72,7 @@ fun VideoListScreen(
         ) {
             Column {
                 Text(
-                    text = "Сейчас популярно",
+                    text = stringResource(R.string.popular_now),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(20.dp),
@@ -86,16 +86,17 @@ fun VideoListScreen(
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    items(videos) { video ->
+                    items(items = videos, key = { it.id }) { video ->
                         VideoCardItem(
                             modifier = Modifier.height(cardHeight),
                             video = Video(
+                                id = video.id,
                                 link = video.link,
                                 title = video.title,
                                 thumbnailUrl = video.thumbnailUrl,
                                 duration = video.duration,
                             ),
-                            onClick = { navController.navigate(Screen.PlayerScreen.route + "?link=${video.link}")}
+                            onClick = { navController.navigate(Screen.PlayerScreen.route + "?link=${video.link}") }
                         )
                     }
                 }

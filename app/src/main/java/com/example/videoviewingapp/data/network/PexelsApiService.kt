@@ -1,6 +1,6 @@
-package com.example.videoviewingapp.domain
+package com.example.videoviewingapp.data.network
 
-import com.example.videoviewingapp.data.PexelsVideoListResponse
+import com.example.videoviewingapp.domain.PexelsVideoListResponse
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
