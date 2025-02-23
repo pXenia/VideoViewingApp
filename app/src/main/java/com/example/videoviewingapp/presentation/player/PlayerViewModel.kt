@@ -2,6 +2,7 @@ package com.example.videoviewingapp.presentation.player
 
 import android.content.Context
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -43,6 +44,7 @@ class PlayerViewModel @Inject constructor(
                     it.seekTo(currentPosition)
                     it.addListener(object : Player.Listener {
                         override fun onPlayerError(error: PlaybackException) {
+                            Log.e("PlayerViewModel", "Ошибка воспроизведения: ${error.localizedMessage}")
                         }
                     })
                 }
