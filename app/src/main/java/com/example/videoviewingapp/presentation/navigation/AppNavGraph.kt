@@ -24,10 +24,10 @@ fun AppNavGraph(
                 navController = navController,
                 windowSizeClass = windowSizeClass)
         }
-        composable(Screen.PlayerScreen.route + "?id={id}",
+        composable(Screen.PlayerScreen.route + "?link={link}",
             listOf(
                 navArgument(
-                    name = "id"
+                    name = "link"
                 ) {
                     type = NavType.StringType
                     defaultValue = ""

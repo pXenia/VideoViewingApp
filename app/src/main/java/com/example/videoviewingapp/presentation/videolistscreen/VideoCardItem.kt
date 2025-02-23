@@ -23,7 +23,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import com.example.videoviewingapp.data.Video
+import com.example.videoviewingapp.domain.Video
 
 @Composable
 fun VideoCardItem(
@@ -62,7 +62,7 @@ fun VideoCardItem(
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = video.duration,
+                    text = formatDuration(video.duration),
                     color = Color.White.copy(alpha = 0.9f),
                     style = MaterialTheme.typography.bodyLarge
                 )
@@ -97,4 +97,15 @@ fun VideoCardItemImage(
             )
             .clip(RoundedCornerShape(8.dp)),
     )
+}
+
+private fun formatDuration(seconds: Int): String {
+    val hours = seconds / 3600
+    val minutes = (seconds % 3600) / 60
+    val secs = seconds % 60
+
+    return when {
+        hours > 0 -> String.format("%d:%02d:%02d", hours, minutes, secs)
+        else -> String.format("%d:%02d", minutes, secs)
+    }
 }

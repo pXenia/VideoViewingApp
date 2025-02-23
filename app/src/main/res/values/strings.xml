@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">VideoViewingApp</string>
-    <string name="music_trends">Музыкальные тренды</string>
     <string name="play">Воспроизведение</string>
     <string name="pause">Пауза</string>
     <string name="seek_10s">-10s</string>
     <string name="seek_15s">+15s</string>
+    <string name="popular_now">Сейчас популярно</string>
+    <string name="try_again">Попробовать снова</string>
 </resources>
